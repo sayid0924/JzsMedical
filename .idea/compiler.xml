@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="bedcard-service" />
         <module name="bedcardservice" />
+        <module name="eureka-service" />
         <module name="eurekaservice" />
+        <module name="netty-service" />
         <module name="nettyservice" />
       </profile>
     </annotationProcessing>
