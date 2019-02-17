@@ -1,0 +1,44 @@
+server:
+  port: 8100
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    leaseRenewalIntervalInSeconds: 15
+    health-check-url-path: /actuator/health
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
+
+spring:
+  application:
+    name: bedcard-service
+
+  multipart:
+    maxFileSize: 50MB
+    maxRequestSize: 50MB
+
+  rabbitmq:
+    host: 140.82.46.90
+    port: 5672
+    username: admin
+    password: admin
+
+db:
+  bedcard:
+    url: jdbc:mysql://127.0.0.1:3306/bben_medical?useUnicode=true&useSSL=false&autoReconnect=true&characterEncoding=UTF-8&queryInterceptors=com.bben.bedcard.common.LogSqlQueryInterceptor&serverTimezone=UTC
+    username: root
+    password: 123456
+
+#pagehelper
+pagehelper:
+  #    helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check

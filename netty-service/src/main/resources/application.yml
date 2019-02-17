@@ -1,0 +1,6 @@
+netty:
+  port: 8111
+
+spring:
+  application:
+    name: neety-service
