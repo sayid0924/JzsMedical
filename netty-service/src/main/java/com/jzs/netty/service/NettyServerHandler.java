@@ -82,7 +82,6 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<BaseMsg> {
             System.out.println("If the connection is not logged in, or the connection is broken, the server sends a login request to the client for the client to log in again.");
         }
 
-
         switch (baseMsg.getType()) {
             case PING: {
                 PingMsg replyPing = new PingMsg();
@@ -162,10 +161,9 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<BaseMsg> {
                 voiceResponse.setEquipmentType(voiceRequest.getEquipmentType());
                 voiceResponse.setBedInfo(voiceRequest.getBedInfo());
 
-                if(NettyChannelMap.get(voiceRequest.getNurseCeardIp())!=null){
+                if(NettyChannelMap.get(voiceRequest.getNurseCeardIp())!=null) {
                     System.out.println( "getNurseCeardIp:     " +voiceRequest.getNurseCeardIp() +   "      "  + dateFormat.format(new Date()));
                     NettyChannelMap.get(voiceRequest.getNurseCeardIp()).writeAndFlush(voiceResponse);
-
                 }
 
 //                f = NettyChannelMap.get(voiceRequest.getClientId()).writeAndFlush(voiceRequest);  //回写数据给client端
